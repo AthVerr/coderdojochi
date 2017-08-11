@@ -14,12 +14,25 @@ from coderdojochi.models import (
     Session
 )
 from coderdojochi.util import email
+import logging 
+logger = logging.getLoger("mechanize")
+
+class Before(CronJobBase):
+   RUN_EVERY_MINS = 2 
+
+    schedule = Schedule(run_every_mins=RUN_EVERY_MINS)
+    code ='coderdojochi.before'    # a unique code
+
+    def do(self):
+        
+     logger.debug("RUNNING")
 
 
 class SendReminders(CronJobBase):
-    RUN_AT_TIMES = ['10:00', '14:00']
+   
+    RUN_EVERY_MINS = 2 
 
-    schedule = Schedule(run_at_times=RUN_AT_TIMES)
+    schedule = Schedule(run_every_mins=RUN_EVERY_MINS)
     code = 'coderdojochi.send_reminders'
 
     def do(self):

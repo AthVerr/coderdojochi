@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
 
     # vendor
+    "django_cron",
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -91,6 +92,11 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.cache.FetchFromCacheMiddleware',
+]
+
+CRON_CLASSES = [
+    "coderdojochi.cron.Before",
+    
 ]
 
 TEMPLATES = [

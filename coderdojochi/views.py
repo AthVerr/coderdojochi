@@ -1641,6 +1641,7 @@ def mentor_reject_avatar(request, mentor_id=False):
     return redirect('mentors')
 
 
+
 @login_required
 def student_detail(
     request,
@@ -1681,6 +1682,7 @@ def student_detail(
             'form': form
         }
     )
+
 
 
 def donate(request, template_name="donate.html"):

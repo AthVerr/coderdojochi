@@ -317,7 +317,7 @@ class Course(models.Model):
         blank=True,
         null=True,
     )
-    title = models.CharField(
+    title  = models.CharField(
         max_length=255,
     )
     slug = models.SlugField(
@@ -772,7 +772,7 @@ class Order(models.Model):
         Guardian,
     )
     session = models.ForeignKey(
-        Session,
+        Session,  
     )
     student = models.ForeignKey(
         Student,
