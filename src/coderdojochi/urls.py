@@ -14,6 +14,7 @@ from . import old_views as coderdojochi_views
 from .views.about import AboutView
 from .views.admin.mentor_check_in import AdminMentorCheckInView
 from .views.admin.student_check_in import AdminStudentCheckInView
+from .views.admin.guardian_list import AdminGuardianListView
 from .views.contact import ContactView
 from .views.home import HomeView
 from .views.meetings import (
@@ -361,6 +362,13 @@ urlpatterns = [
         name='check_system',
     ),
 
+    # Admin User Deactivate
+    # /admin/guardians
+    url(
+        r'^admin/guardians/$',
+        AdminGuardianListView.as_view(),
+        name='admin_guardians',
+    ),
 
     # Welcome
     # /welcome/

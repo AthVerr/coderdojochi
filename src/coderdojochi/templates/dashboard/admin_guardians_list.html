@@ -1,0 +1,67 @@
+{% extends "_admin-base.html" %}
+
+{% load humanize coderdojochi_extras %}
+
+{% block title %}CoderDojoChi Admin - Check in mentors{% endblock %}
+
+{% block topnav %}
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'cdc_admin' %}">CoderDojoChi Admin</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="pull-right" href="/dj-admin">Django Admin</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <h1>Guardians</h1>
+
+    {% if object_list %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th># Students</th>
+                <th>Active</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for guardian in object_list %}
+            <tr>
+                <td>{{ guardian.id }}</td>
+                <td>{{ guardian.user.first_name }}</td>
+                <td>{{ guardian.user.last_name }}</td>
+                <td>{{ guardian.user.email }}</td>
+                <td>{{ guardian.phone }}</td>
+                <td>{{ guardian.get_students | length }}</td>
+                <td>{{ guardian.is_active }}</td>
+                <td><a href="">Edit</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No past sessions.</p>
+    {% endif %}
+</div>
+
+{% endblock %}
