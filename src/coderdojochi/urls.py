@@ -15,6 +15,7 @@ from .views.about import AboutView
 from .views.admin.mentor_check_in import AdminMentorCheckInView
 from .views.admin.student_check_in import AdminStudentCheckInView
 from .views.admin.guardian_list import AdminGuardianListView
+from .views.admin.guardian_edit import AdminGuardianEditView
 from .views.contact import ContactView
 from .views.home import HomeView
 from .views.meetings import (
@@ -363,11 +364,19 @@ urlpatterns = [
     ),
 
     # Admin User Deactivate
-    # /admin/guardians
+    # /admin/guardians/
     url(
         r'^admin/guardians/$',
         AdminGuardianListView.as_view(),
         name='admin_guardians',
+    ),
+
+    # Admin User Deactivate
+    # /admin/guardian/ID/edit/
+    url(
+        r'^admin/guardian/(?P<pk>\d+)/edit/$',
+        AdminGuardianEditView.as_view(),
+        name='admin_guardian_edit',
     ),
 
     # Welcome

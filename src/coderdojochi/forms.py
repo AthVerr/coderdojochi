@@ -214,6 +214,54 @@ class GuardianForm(CDCModelForm):
         model = Guardian
         fields = ('phone', 'zip')
 
+class GuardianEditForm(CDCModelForm):
+
+    first_name = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                'placeholder': 'John',
+                'class': 'form-control'
+            }
+        ),
+        label='First Name'
+    )
+
+    last_name = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                'placeholder': 'Doe',
+                'class': 'form-control'
+            }
+        ),
+        label='Last Name'
+    )
+
+    email = forms.EmailField(max_length=200, label='Your email address')
+
+    phone = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                'placeholder': 'Phone Number',
+                'class': 'form-control'
+            }
+        ),
+        label='Phone Number'
+    )
+
+    zip = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                'placeholder': 'Zip Code',
+                'class': 'form-control'
+            }
+        ),
+        label='Zip Code'
+    )
+
+    class Meta:
+        model = Guardian
+        fields = ('first_name', 'last_name', 'email', 'phone', 'zip')
+
 
 class StudentForm(CDCModelForm):
     first_name = forms.CharField(

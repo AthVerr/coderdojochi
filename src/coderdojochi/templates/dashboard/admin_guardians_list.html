@@ -2,7 +2,7 @@
 
 {% load humanize coderdojochi_extras %}
 
-{% block title %}CoderDojoChi Admin - Check in mentors{% endblock %}
+{% block title %}CoderDojoChi Admin - Guardians details{% endblock %}
 
 {% block topnav %}
     <nav class="navbar navbar-default navbar-static-top">
@@ -54,7 +54,7 @@
                 <td>{{ guardian.phone }}</td>
                 <td>{{ guardian.get_students | length }}</td>
                 <td>{{ guardian.is_active }}</td>
-                <td><a href="">Edit</a></td>
+                <td><a href="{% url 'admin_guardian_edit' guardian.id %}">Edit</a></td>
             </tr>
             {% endfor %}
         </tbody>

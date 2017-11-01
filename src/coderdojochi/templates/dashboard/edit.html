@@ -1,0 +1,36 @@
+{% extends "_admin-base.html" %} {% load humanize coderdojochi_extras %} {% block title %}CoderDojoChi Admin - Guardians
+details{% endblock %} {% block topnav %}
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url 'cdc_admin' %}">CoderDojoChi Admin</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="pull-right" href="/dj-admin">Django Admin</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock %} {% block content %}
+<div class="container">
+
+    <h1>Edit Guardian</h1>
+<form id="GuardianEditForm" enctype="multipart/form-data" action="" method="post"> {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Update" />
+    <a href="{% url 'admin_guardians' %}" class="btn-link">Cancel</a>
+</form>
+
+</div>
+
+{% endblock %}
